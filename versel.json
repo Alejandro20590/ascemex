@@ -8,8 +8,9 @@
   ],
   "routes": [
     {
-      "src": "/enviar-solicitud",
-      "dest": "/server.js"
+      "src": "/(.*)",
+      "dest": "server.js"
+
     }
   ]
 }
