@@ -1,0 +1,180 @@
+/* General Styles */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center; /* Centrar texto por defecto */
+}
+
+/* Barra superior */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido horizontalmente */
+    background-color: #46c0e6;
+    color: white;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img {
+    width: 180px; /* Ajustar el tamaño del logo */
+    height: auto;
+    margin-right: 10px;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+/* Formulario */
+.formulario-solicitud {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto; /* Centramos y añadimos margen superior */
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Logo de fondo en el formulario */
+.formulario-solicitud::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.2;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.formulario-solicitud form {
+    position: relative;
+    z-index: 1;
+}
+
+.formulario-solicitud label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    text-align: left; /* Alinear etiquetas a la izquierda */
+}
+
+.formulario-solicitud input[type="text"],
+.formulario-solicitud input[type="file"],
+.formulario-solicitud textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
+}
+
+.formulario-solicitud button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.formulario-solicitud button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    header .logo img {
+        width: 150px;
+        margin-right: 0; /* Quitar el espacio adicional en móviles */
+    }
+
+    header h2 {
+        font-size: 1.2em;
+    }
+
+    .formulario-solicitud {
+        padding: 15px; /* Reducir padding en móviles */
+        margin: 10px auto; /* Reducir margen en móviles */
+    }
+
+    .formulario-solicitud input[type="text"],
+    .formulario-solicitud input[type="file"],
+    .formulario-solicitud textarea {
+        font-size: 0.9em;
+    }
+
+    .formulario-solicitud button {
+        font-size: 0.9em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* Colocar elementos del header en columna */
+    }
+
+    header .logo img {
+        width: 120px;
+    }
+
+    header h2 {
+        font-size: 1em;
+        margin-top: 5px;
+    }
+
+    .formulario-solicitud {
+        padding: 10px;
+        margin: 5px auto;
+    }
+
+    .formulario-solicitud input[type="text"],
+    .formulario-solicitud input[type="file"],
+    .formulario-solicitud textarea {
+        font-size: 0.8em;
+    }
+
+    .formulario-solicitud button {
+        font-size: 0.8em;
+    }
+
+    footer {
+        font-size: 0.7em;
+        padding: 5px;
+    }
+}

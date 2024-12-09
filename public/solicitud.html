@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Refacción</title>
+    <link rel="stylesheet" href="css/solicitud.css">
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('tipo').value = urlParams.get('tipo') || ''; // Permite escribir
+            document.getElementById('marca').value = urlParams.get('marca') || ''; // Permite escribir
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo de ASCEMEX">
+        </div>
+        <h2>Solicitud de Refacción</h2>
+    </header>
+
+    <main>
+        <section class="formulario-solicitud">
+            <form action="/enviar-solicitud" method="post" enctype="multipart/form-data">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+                <label for="telefono">Número de Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono" required>
+
+                <label for="correo">Correo electrónico de contacto:</label>
+                <input type="email" id="correo" name="correo" placeholder="tuemail@ejemplo.com" required>
+
+                <label for="tipo">¿Es para elevador o escalera eléctrica?</label>
+ 
+                <input type="text" id="tipo" name="tipo" placeholder="Escribe aquí" required>
+
+                <label for="marca">Marca de elevador/escalera eléctrica:</label>
+           
+                <input type="text" id="marca" name="marca" placeholder="Escribe la marca" required>
+
+                <label for="imagen">Imagen o código de la pieza:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+
+                <label for="descripcion">Descripción breve de la refacción:</label>
+                <textarea id="descripcion" name="descripcion" placeholder="Ejemplo: tarjeta de seguridades, tarjeta de CPU" required></textarea>
+
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>ASCEMEX Elevadores y Escaleras &copy; 2024</p>
+    </footer>
+</body>
+</html>

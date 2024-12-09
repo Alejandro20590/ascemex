@@ -1,0 +1,247 @@
+/* Estilos básicos */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.icono {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Encabezado */
+header1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(to right, #ffffff, #004080 50%);
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: auto;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a i {
+    margin-right: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Colores de fondo específicos para cada enlace de navegación */
+.nav-elevadores { background-color: #004080; }
+.nav-escaleras { background-color: #004080; }
+.nav-servicios { background-color: #004080; }
+.nav-refacciones { background-color: #618C37; }
+.nav-contacto { background-color: #F20505; }
+
+/* Sección Quiénes Somos */
+.quienes-somos {
+    background-image: url('img/fondo-prev.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    color: rgba(247, 245, 245, 0.993);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.quienes-somos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quienes-somos p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Sección Valores */
+#valores {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.columna {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.columna:hover {
+    transform: translateY(-5px);
+}
+
+.columna h3 {
+    font-size: 1.8rem;
+    color: #004080;
+    margin-bottom: 15px;
+}
+
+.columna p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Sección Refacciones */
+#refacciones {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.refacciones-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.refaccion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.refaccion-item:hover {
+    transform: translateY(-5px);
+}
+
+.refaccion-imagen img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.refaccion-item h3 {
+    font-size: 1.5rem;
+    color: #004080;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.refaccion-item p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #004080;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Encabezado */
+    header1 {
+        flex-direction: column;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Sección Quiénes Somos */
+    .quienes-somos h2 {
+        font-size: 2rem;
+    }
+
+    .quienes-somos p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Sección Valores */
+    .fila {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .columna {
+        width: 100%;
+    }
+
+    /* Sección Refacciones */
+    .refacciones-lista {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .refaccion-imagen img {
+        width: 100%;
+        height: auto;
+    }
+}

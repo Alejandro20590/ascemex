@@ -1,0 +1,208 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.logo img {
+    width: auto;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+header2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #46c0e6;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+header2 h2 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.refacciones-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.refaccion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    height: 400px;
+    justify-content: space-between;
+}
+
+.refaccion-imagen img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-solicitar img {
+    width: 50px;
+    height: auto;
+    margin-top: auto;
+}
+
+.refaccion-item h3 {
+    font-size: 1.2rem;
+    color: #004080;
+    text-align: center;
+}
+
+/* Modal de imagen */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #f44336;
+    text-decoration: none;
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #004080; /* Azul */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+footer img {
+    max-width: 150px; /* Puedes ajustar este valor */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilo del texto en el pie de página */
+footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .refacciones-lista {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: 15px; /* Ajusta el espacio entre los elementos */
+    }
+
+    .refaccion-item {
+        height: auto; /* Ajusta la altura automáticamente */
+        padding: 15px; /* Reduce el padding para mejor ajuste */
+    }
+
+    .refaccion-item h3 {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+    }
+
+    .refaccion-imagen img {
+        height: 150px; /* Reduce la altura de las imágenes */
+    }
+
+    header2 h2 {
+        font-size: 1.5rem; /* Reduce el tamaño del encabezado */
+        padding: 0.5rem; /* Ajusta el padding */
+    }
+
+    .btn-solicitar img {
+        width: 40px; /* Reduce el tamaño del botón */
+    }
+
+    footer {
+        padding: 15px; /* Reduce el padding del pie de página */
+    }
+
+    footer img {
+        max-width: 100px; /* Reduce el tamaño del logo */
+    }
+
+    footer p {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    .refacciones-lista {
+        gap: 10px; /* Reduce aún más el espacio entre los elementos */
+    }
+
+    .refaccion-item {
+        padding: 10px; /* Reduce el padding */
+    }
+
+    .refaccion-imagen img {
+        height: 200px; /* Reduce la altura de las imágenes */
+    }
+
+    .btn-solicitar img {
+        width: 50px; /* Ajusta el tamaño del botón */
+    }
+
+    header2 h2 {
+        font-size: 1.2rem; /* Reduce el tamaño del encabezado */
+    }
+
+    footer {
+        padding: 10px; /* Reduce el padding del pie de página */
+    }
+
+    footer img {
+        max-width: 80px; /* Ajusta el tamaño del logo */
+    }
+
+    footer p {
+        font-size: 0.8rem; /* Ajusta el tamaño del texto */
+    }
+}

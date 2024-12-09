@@ -1,0 +1,159 @@
+/* Estilos básicos */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.icono {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Encabezado */
+header1, header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(to right, #ffffff, #004080 50%);
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0; 
+}
+
+.logo img {
+    width: auto;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Main sections */
+main {
+    padding: 30px;
+}
+
+/* Section titles */
+section h2 {
+    background-color: #004080;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Content grid */
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Fija dos columnas */
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+}
+
+/* Item cards */
+.item {
+    background: #fff;
+    border: 1px solid #d4d9e2;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 350px; /* Tamaño máximo de cada tarjeta */
+}
+
+.item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Images in cards */
+.item img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #555;
+    margin: 0;
+    margin-top: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header .logo img {
+        width: 100px;
+    }
+
+    .content {
+        grid-template-columns: 1fr; /* Una columna en pantallas medianas */
+    }
+
+    .item img {
+        max-height: 250px;
+    }
+
+    .item p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        margin-top: 10px;
+    }
+
+    .item img {
+        max-height: 200px;
+    }
+
+    .item p {
+        font-size: 1rem;
+    }
+}
+/* Footer */
+footer {
+    background-color: #004080; /* Azul */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;  /* Asegura que el pie de página ocupe todo el ancho */
+    box-sizing: border-box; /* Para incluir el padding en el ancho total */
+    margin: 0; /* Elimina cualquier margen que pueda estar afectando */
+}

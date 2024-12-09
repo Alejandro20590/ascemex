@@ -1,0 +1,49 @@
+/* Estilo general del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #007BFF; /* Fondo azul */
+    color: white; /* Texto blanco */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo de la empresa dentro de un contenedor con fondo blanco y bordes redondeados */
+.logo {
+    background-color: white; /* Fondo blanco */
+    padding: 15px; /* Espaciado dentro del rectángulo */
+    border-radius: 15px; /* Bordes redondeados */
+    display: inline-block; /* Ajusta el tamaño según el contenido */
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100%; /* Ajusta el tamaño del logo al tamaño del contenedor */
+    max-width: 150px; /* Tamaño máximo del logo */
+    height: auto; /* Mantiene la proporción */
+}
+
+/* Estilo del mensaje principal */
+.mensaje h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.mensaje p {
+    font-size: 16px;
+    line-height: 1.5;
+}

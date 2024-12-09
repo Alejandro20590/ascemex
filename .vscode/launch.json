@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0", // Versión del esquema de configuración.
+    "configurations": [ // Comienza el arreglo de configuraciones de depuración.
+        {
+            "type": "chrome", // Tipo de depurador, en este caso, Chrome.
+            "request": "launch", // Indica que se debe lanzar una nueva instancia del navegador.
+            "name": "Launch Chrome against localhost", // Nombre de la configuración, que aparecerá en la lista de configuraciones.
+            "url": "http://localhost:5500", // URL que se abrirá en Chrome al iniciar la depuración.
+            "webRoot": "${workspaceFolder}" // Raíz de la aplicación web, que generalmente es la carpeta del proyecto.
+        }
+    ]
+}
