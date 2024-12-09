@@ -7,7 +7,6 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
 
 // Configuración de multer para manejar archivos
 const upload = multer({ dest: 'uploads/' });
@@ -112,7 +111,5 @@ app.post('/enviar-solicitud', upload.single('imagen'), async (req, res) => {
     }
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+// Exporte la app para Vercel
+module.exports = app;
