@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
@@ -7,7 +8,6 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
 
 // Configuración de multer para manejar archivos
 const upload = multer({ dest: 'uploads/' });
@@ -59,8 +59,8 @@ app.post('/enviar-solicitud', upload.single('imagen'), async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'prueba010101011@gmail.com', // Cambia a tu correo de Gmail
-            pass: 'pqqn ydxs ptak efzz', // Contraseña de aplicación
+            user: process.env.EMAIL_USER, // Usará una variable de entorno
+            pass: process.env.EMAIL_PASS, // Usará una variable de entorno
         },
     });
 
@@ -112,7 +112,8 @@ app.post('/enviar-solicitud', upload.single('imagen'), async (req, res) => {
     }
 });
 
-// Iniciar el servidor
+// Declaración única del puerto
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
