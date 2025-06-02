@@ -17,14 +17,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #79b8fc; /* Azul profesional */
+    background-color: #004080; /* Azul profesional */
     color: #fff; /* Texto claro */
     padding: 20px 40px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 header .logo img {
-    max-height: 60px;
+    max-height: 90px;
     width: auto;
     object-fit: contain;
 }
