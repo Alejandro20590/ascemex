@@ -16,7 +16,7 @@
 
   <main>
     <section class="intro">
-      <p>En ASCEMEX nos especializamos en la reparación y mantenimiento de escaleras eléctricas. A continuación, encontrarás una galería de algunos de los trabajos que hemos realizado con éxito.</p>
+      <p>En ASCEMEX nos especializamos en la reparación y mantenimiento de elevadores. A continuación, encontrarás una galería de algunos de los trabajos que hemos realizado con éxito.</p>
     </section>
     <section class="gallery" id="gallery"></section>
   </main>
@@ -26,7 +26,7 @@
   </footer>
 
   <script>
-    async function cargarGaleria() {
+    async function cargarTrabajos() {
       try {
         const res = await fetch('/api/elevadores');
         if (!res.ok) throw new Error('Error al cargar datos');
@@ -50,7 +50,7 @@
       }
     }
 
-    window.onload = cargarGaleria;
+    window.onload = cargarTrabajos;
   </script>
 </body>
 </html>
