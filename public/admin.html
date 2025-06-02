@@ -1,0 +1,479 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor de Contenido - ASCEMEX</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      ASCEMEX <span class="admin-label">Admin</span>
+    </div>
+    <div class="welcome">BIENVENIDO ING. JESUS ANTUNEZ CARBAJAL</div>
+  </div>
+</nav>
+
+<main>
+  <h1>Editor de Contenido</h1>
+
+  <!-- BOTONES DE NAVEGACIÓN ENTRE SECCIONES -->
+  <div id="menu-secciones" style="margin-bottom:20px;">
+    <button type="button" data-seccion="info">Quiénes Somos y Valores</button>
+    <button type="button" data-seccion="elevadores">Elevadores</button>
+    <button type="button" data-seccion="escaleras">Escaleras Eléctricas</button>
+    <button type="button" data-seccion="servicios-clientes">Servicios y Clientes</button>
+    <button type="button" data-seccion="refacciones">Refacciones</button>
+
+  </div>
+
+  <!-- SECCIÓN QUIÉNES SOMOS Y VALORES -->
+  <section id="info" style="display: block;">
+    <!-- FORMULARIO QUIÉNES SOMOS -->
+    <form id="form-contenido">
+      <h2>Quiénes Somos</h2>
+      <textarea id="quienesSomos" rows="5" placeholder="Escribe aquí quiénes somos..."></textarea>
+
+      <h2>Valores</h2>
+      <input type="text" id="mision" placeholder="Misión" />
+      <input type="text" id="vision" placeholder="Visión" />
+      <input type="text" id="objetivo" placeholder="Objetivo" />
+
+      <button type="submit">Guardar Cambios</button>
+    </form>
+    <p id="mensaje"></p>
+  </section>
+
+  <!-- SECCIÓN ELEVADORES -->
+  <section id="elevadores" style="display: none;">
+    <h2>Trabajos en Elevadores</h2>
+    <form id="form-trabajo" enctype="multipart/form-data">
+      <label for="imagen">Imagen del Trabajo:</label><br />
+      <input type="file" id="imagen" name="imagen" accept="image/*" required /><br /><br />
+
+      <label for="descripcion">Descripción:</label><br />
+      <textarea id="descripcion" name="descripcion" rows="3" required placeholder="Describe el trabajo..."></textarea><br /><br />
+
+      <button type="submit">Agregar Trabajo</button>
+    </form>
+
+    <h3>Trabajos existentes</h3>
+    <section id="trabajos"></section>
+  </section>
+
+  <!-- SECCIÓN ESCALERAS -->
+  <section id="escaleras" style="display: none;">
+    <h2>Trabajos en Escaleras Eléctricas</h2>
+    <form id="form-escalera" enctype="multipart/form-data">
+      <label for="imagenEscalera">Imagen del Trabajo:</label><br />
+      <input type="file" id="imagenEscalera" name="imagen" accept="image/*" required /><br /><br />
+
+      <label for="descripcionEscalera">Descripción:</label><br />
+      <textarea id="descripcionEscalera" name="descripcion" rows="3" required placeholder="Describe el trabajo..."></textarea><br /><br />
+
+      <button type="submit">Agregar Trabajo</button>
+    </form>
+
+    <h3>Trabajos existentes</h3>
+    <section id="trabajos-escaleras"></section>
+  </section>
+
+  <!-- SECCIÓN SERVICIOS Y CLIENTES -->
+  <section id="servicios-clientes" style="display: none;">
+    <!-- SECCIÓN SERVICIOS -->
+    <section>
+      <h2>Servicios</h2>
+      <form id="form-servicio" enctype="multipart/form-data">
+        <label for="imagenServicio">Imagen del Servicio:</label><br />
+        <input type="file" id="imagenServicio" name="imagen" accept="image/*" required /><br /><br />
+
+        <label for="descripcionServicio">Descripción:</label><br />
+        <textarea id="descripcionServicio" name="descripcion" rows="3" required placeholder="Describe el servicio..."></textarea><br /><br />
+
+        <button type="submit">Agregar Servicio</button>
+      </form>
+
+      <h3>Servicios existentes</h3>
+      <section id="servicios"></section>
+    </section>
+
+    <hr />
+
+    <!-- SECCIÓN CLIENTES -->
+    <section>
+      <h2>Clientes</h2>
+      <form id="form-cliente" enctype="multipart/form-data">
+        <label for="imagenCliente">Imagen del Cliente:</label><br />
+        <input type="file" id="imagenCliente" name="imagen" accept="image/*" required /><br /><br />
+
+        <label for="nombreCliente">Nombre del Cliente:</label><br />
+        <input type="text" id="nombreCliente" name="nombre" required placeholder="Nombre del cliente" /><br /><br />
+
+        <button type="submit">Agregar Cliente</button>
+      </form>
+
+      <h3>Clientes existentes</h3>
+      <section id="clientes"></section>
+    </section>
+  </section>
+    
+   <!-- SECCIÓN REFACCIONES -->
+<section id="refacciones" style="display: none;">
+  <h2>Gestión de Refacciones</h2>
+  <form id="form-refaccion" enctype="multipart/form-data">
+    <label for="imagenRefaccion">Imagen de la Refacción:</label><br />
+    <input type="file" id="imagenRefaccion" name="imagen" accept="image/*" required /><br /><br />
+
+    <label for="descripcionRefaccion">Descripción:</label><br />
+    <textarea id="descripcionRefaccion" name="descripcion" rows="3" required placeholder="Describe la refacción..."></textarea><br /><br />
+
+    <button type="submit">Agregar Refacción</button>
+  </form>
+
+  <h3>Refacciones existentes</h3>
+  <section id="refacciones-lista"></section>
+</section>
+
+
+</main>
+
+<script src="js/admin.js"></script>
+
+<script>
+  // SCRIPT NUEVO PARA NAVEGACIÓN ENTRE SECCIONES
+  document.getElementById('menu-secciones').addEventListener('click', (e) => {
+    if(e.target.tagName === 'BUTTON'){
+      const seccion = e.target.getAttribute('data-seccion');
+      // Ocultar todas las secciones
+      ['info','elevadores','escaleras','servicios-clientes','refacciones'].forEach(id => {
+        document.getElementById(id).style.display = (id === seccion) ? 'block' : 'none';
+      });
+    }
+  });
+    // Aquí el mismo JS que tienes para cargar y eliminar trabajos (sin cambios)
+    async function cargarTrabajos() {
+      try {
+        const res = await fetch('/api/elevadores');
+        if (!res.ok) throw new Error('Error al cargar trabajos');
+        const datos = await res.json();
+        const contenedor = document.getElementById('trabajos');
+        contenedor.innerHTML = '';
+        datos.forEach(t => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <img src="elevadores/${t.imagen}" alt="${t.descripcion}" />
+            <p>${t.descripcion}</p>
+            <button onclick="eliminarTrabajo('${t.imagen}')">Eliminar</button>
+          `;
+          contenedor.appendChild(div);
+        });
+      } catch (error) {
+        alert('Error al cargar trabajos.');
+        console.error(error);
+      }
+    }
+
+    async function eliminarTrabajo(imagen) {
+      if (!confirm('¿Seguro que quieres eliminar este trabajo?')) return;
+      try {
+        const res = await fetch('/api/elevadores/' + encodeURIComponent(imagen), {
+          method: 'DELETE'
+        });
+        if (res.ok) {
+          alert('Trabajo eliminado');
+          cargarTrabajos();
+        } else {
+          alert('Error al eliminar trabajo');
+        }
+      } catch (error) {
+        alert('Error al eliminar trabajo');
+        console.error(error);
+      }
+    }
+
+    document.getElementById('form-trabajo').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      try {
+        const res = await fetch('/api/elevadores', {
+          method: 'POST',
+          body: formData
+        });
+        if (res.ok) {
+          alert('Trabajo agregado');
+          e.target.reset();
+          cargarTrabajos();
+        } else {
+          alert('Error al agregar trabajo');
+        }
+      } catch (error) {
+        alert('Error al agregar trabajo');
+        console.error(error);
+      }
+    });
+
+    // Escaleras
+    async function cargarEscaleras() {
+      try {
+        const res = await fetch('/api/escaleras');
+        if (!res.ok) throw new Error('Error al cargar trabajos');
+        const datos = await res.json();
+        const contenedor = document.getElementById('trabajos-escaleras');
+        contenedor.innerHTML = '';
+        datos.forEach(t => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <img src="escaleras/${t.imagen}" alt="${t.descripcion}" />
+            <p>${t.descripcion}</p>
+            <button onclick="eliminarEscalera('${t.imagen}')">Eliminar</button>
+          `;
+          contenedor.appendChild(div);
+        });
+      } catch (error) {
+        alert('Error al cargar escaleras.');
+        console.error(error);
+      }
+    }
+
+    async function eliminarEscalera(imagen) {
+      if (!confirm('¿Seguro que quieres eliminar este trabajo?')) return;
+      try {
+        const res = await fetch('/api/escaleras/' + encodeURIComponent(imagen), {
+          method: 'DELETE'
+        });
+        if (res.ok) {
+          alert('Trabajo eliminado');
+          cargarEscaleras();
+        } else {
+          alert('Error al eliminar trabajo');
+        }
+      } catch (error) {
+        alert('Error al eliminar trabajo');
+        console.error(error);
+      }
+    }
+
+    document.getElementById('form-escalera').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      try {
+        const res = await fetch('/api/escaleras', {
+          method: 'POST',
+          body: formData
+        });
+        if (res.ok) {
+          alert('Trabajo agregado');
+          e.target.reset();
+          cargarEscaleras();
+        } else {
+          alert('Error al agregar trabajo');
+        }
+      } catch (error) {
+        alert('Error al agregar trabajo');
+        console.error(error);
+      }
+    });
+
+    // Servicios
+    async function cargarServicios() {
+      try {
+        const res = await fetch('/api/servicios');
+        if (!res.ok) throw new Error('Error al cargar servicios');
+        const datos = await res.json();
+        const contenedor = document.getElementById('servicios');
+        contenedor.innerHTML = '';
+        datos.forEach(t => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <img src="servicios/${t.imagen}" alt="${t.descripcion}" />
+            <p>${t.descripcion}</p>
+            <button onclick="eliminarServicio('${t.imagen}')">Eliminar</button>
+          `;
+          contenedor.appendChild(div);
+        });
+      } catch (error) {
+        alert('Error al cargar servicios.');
+        console.error(error);
+      }
+    }
+
+    async function eliminarServicio(imagen) {
+      if (!confirm('¿Seguro que quieres eliminar este servicio?')) return;
+      try {
+        const res = await fetch('/api/servicios/' + encodeURIComponent(imagen), {
+          method: 'DELETE'
+        });
+        if (res.ok) {
+          alert('Servicio eliminado');
+          cargarServicios();
+        } else {
+          alert('Error al eliminar servicio');
+        }
+      } catch (error) {
+        alert('Error al eliminar servicio');
+        console.error(error);
+      }
+    }
+
+    document.getElementById('form-servicio').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      try {
+        const res = await fetch('/api/servicios', {
+          method: 'POST',
+          body: formData
+        });
+        if (res.ok) {
+          alert('Servicio agregado');
+          e.target.reset();
+          cargarServicios();
+        } else {
+          alert('Error al agregar servicio');
+        }
+      } catch (error) {
+        alert('Error al agregar servicio');
+        console.error(error);
+      }
+    });
+
+    // Clientes
+    async function cargarClientes() {
+      try {
+        const res = await fetch('/api/clientes');
+        if (!res.ok) throw new Error('Error al cargar clientes');
+        const datos = await res.json();
+        const contenedor = document.getElementById('clientes');
+        contenedor.innerHTML = '';
+        datos.forEach(t => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <img src="clientes/${t.imagen}" alt="${t.nombre || t.descripcion}" />
+        <p>${t.nombre || t.descripcion}</p>
+        <button onclick="eliminarCliente(${t.id})">Eliminar</button>
+        `;
+       contenedor.appendChild(div);
+       });
+
+      } catch (error) {
+        alert('Error al cargar clientes.');
+        console.error(error);
+      }
+    }
+
+      async function eliminarCliente(id) {
+      if (!confirm('¿Seguro que quieres eliminar este cliente?')) return;
+      try {
+      const res = await fetch('/api/clientes/' + id, {
+      method: 'DELETE'
+       });
+       if (res.ok) {
+      alert('Cliente eliminado');
+      cargarClientes();
+           } else {
+      alert('Error al eliminar cliente');
+    }
+    } catch (error) {
+    alert('Error al eliminar cliente');
+    console.error(error);
+  }
+}
+
+
+    document.getElementById('form-cliente').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      try {
+        const res = await fetch('/api/clientes', {
+          method: 'POST',
+          body: formData
+        });
+        if (res.ok) {
+          alert('Cliente agregado');
+          e.target.reset();
+          cargarClientes();
+        } else {
+          alert('Error al agregar cliente');
+        }
+      } catch (error) {
+        alert('Error al agregar cliente');
+        console.error(error);
+      }
+    });
+
+  // Refacciones
+async function cargarRefacciones() {
+  try {
+    const res = await fetch('/api/refacciones');
+    if (!res.ok) throw new Error('Error al cargar refacciones');
+    const datos = await res.json();
+    const contenedor = document.getElementById('refacciones-lista');  // CORREGIDO
+    contenedor.innerHTML = '';
+    datos.forEach(t => {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <img src="refacciones/${t.imagen}" alt="${t.descripcion}" />
+        <p>${t.descripcion}</p>
+        <button onclick="eliminarRefaccion('${t.imagen}')">Eliminar</button>
+      `;
+      contenedor.appendChild(div);
+    });
+  } catch (error) {
+    alert('Error al cargar refacciones.');
+    console.error(error);
+  }
+}
+
+
+async function eliminarRefaccion(imagen) {
+  if (!confirm('¿Seguro que quieres eliminar esta refacción?')) return;
+  try {
+    const res = await fetch('/api/refacciones/' + encodeURIComponent(imagen), {
+      method: 'DELETE'
+    });
+    if (res.ok) {
+      alert('Refacción eliminada');
+      cargarRefacciones();
+    } else {
+      alert('Error al eliminar refacción');
+    }
+  } catch (error) {
+    alert('Error al eliminar refacción');
+    console.error(error);
+  }
+}
+
+document.getElementById('form-refaccion').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  try {
+    const res = await fetch('/api/refacciones', {
+      method: 'POST',
+      body: formData
+    });
+    if (res.ok) {
+      alert('Refacción agregada');
+      e.target.reset();
+      cargarRefacciones();
+    } else {
+      alert('Error al agregar refacción');
+    }
+  } catch (error) {
+    alert('Error al agregar refacción');
+    console.error(error);
+  }
+});
+
+
+    // Al cargar la página, cargar todo
+    window.onload = () => {
+      cargarTrabajos();
+      cargarEscaleras();
+      cargarServicios();
+      cargarClientes();
+      cargarRefacciones();
+    };
+  </script>
+</body>
+</html>

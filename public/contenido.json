@@ -1,0 +1,13 @@
+{
+  "quienes_somos": {
+    "titulo": "QUIÉNES SOMOS",
+    "parrafo": "Somos una empresa proveedora de servicios de mantenimientos, reparaciones y venta de refacciones para elevadores y escaleras eléctricas multimarcas, con base en la ciudad de Monterrey N.L. Contamos con un equipo de técnicos especializados con más de 25 años de experiencia operativa en marcas como Kone, Schindler, BLT, Otis, etc. Todos nuestros técnicos son capacitados para proporcionarle la seguridad operativa de sus equipos, el mejor servicio de mantenimiento del mercado y la más pronta respuesta para atención de sus llamadas. Nuestras refacciones son originales, suministradas directamente por proveedores de origen de la marca de su elevador."
+  },
+  "valores": {
+    "titulo": "NUESTROS VALORES",
+    "mision": "Proveer el mejor servicio de mantenimiento para sus elevadores y escaleras eléctricas",
+    "vision": "Ser una empresa líder en servicios de mantenimiento y reparaciones de transporte vertical",
+    "objetivo": "Brindar servicios que aporten seguridad y calidad a nuestros usuarios, nuestros técnicos y al producto."
+  }
+  
+}

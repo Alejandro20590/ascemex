@@ -1,0 +1,69 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #004080, #004080 80%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-card {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.login-card .logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.login-card h2 {
+    margin-bottom: 25px;
+    color: #004080;
+    font-weight: 600;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 12px 1px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+   
+}
+
+.login-card input:focus {
+    border-color: #004080;
+    outline: none;
+}
+
+.login-card button {
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-card button:hover {
+    background-color: #003366;
+}

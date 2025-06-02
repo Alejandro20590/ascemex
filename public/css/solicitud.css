@@ -14,7 +14,7 @@ header {
     align-items: center;
     justify-content: center; /* Centrar contenido horizontalmente */
     background-color: #46c0e6;
-    color: white;
+    color: rgb(65, 62, 64);
     padding: 10px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escaleras Electricas - ASCEMEX</title>
-    <link rel="stylesheet" href="css/escaleras.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escaleras Eléctricas - ASCEMEX</title>
+  <link rel="stylesheet" href="css/escaleras.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo de ASCEMEX" width="100">
-        </div>
-        <h1>Trabajos Realizados en Escaleras electricas</h1>
-    </header>
-    <main>
-        <section class="intro">
-            <p>En ASCEMEX nos especializamos en la reparación y mantenimiento de elevadores. A continuación, encontrarás una galería de algunos de los trabajos que hemos realizado con éxito.</p>
-        </section>
-        <section class="gallery">
-            <div class="gallery-item">
-                <img src="escalera/Escalera1.jpeg" alt="Trabajo en escalera electrica 1">
-                <p>Descripción breve del trabajo realizado en el escalera electrica 1.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="escalera/Escalera2.jpeg" alt="Trabajo en escalera electricar 2">
-                <p>Descripción breve del trabajo realizado en el escalera electrica 2.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="escalera/Escalera3.jpeg" alt="Trabajo en escalera electrica 3">
-                <p>Descripción breve del trabajo realizado en el escalera electrica 3.</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 ASCEMEX. Todos los derechos reservados.</p>
-    </footer>
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo de ASCEMEX" width="100" />
+    </div>
+    <h1>Trabajos Realizados en Escaleras Eléctricas</h1>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>En ASCEMEX nos especializamos en la reparación y mantenimiento de escaleras eléctricas. A continuación, encontrarás una galería de algunos de los trabajos que hemos realizado con éxito.</p>
+    </section>
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ASCEMEX. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    async function cargarGaleria() {
+      try {
+        const res = await fetch('/api/escaleras');
+        if (!res.ok) throw new Error('Error al cargar datos');
+        const datos = await res.json();
+
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
+
+        datos.forEach(item => {
+          const div = document.createElement('div');
+          div.classList.add('gallery-item');
+          div.innerHTML = `
+            <img src="escaleras/${item.imagen}" alt="${item.descripcion}">
+            <p>${item.descripcion}</p>
+          `;
+          gallery.appendChild(div);
+        });
+      } catch (error) {
+        console.error(error);
+        document.getElementById('gallery').innerHTML = '<p>Error cargando la galería.</p>';
+      }
+    }
+
+    window.onload = cargarGaleria;
+  </script>
 </body>
 </html>

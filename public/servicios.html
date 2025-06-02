@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - ASCEMEX</title>
-    <link rel="stylesheet" href="css/ClientesyServicios.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios - ASCEMEX</title>
+  <link rel="stylesheet" href="css/ClientesyServicios.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo de ASCEMEX" width="100">
-        </div>
-        <h1>Clientes y Servicios</h1>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo de ASCEMEX" width="100">
+    </div>
+    <h1>Clientes y Servicios</h1>
+  </header>
 
-    <main>
-        <section id="Servicios">
-            <h2>Servicios</h2>
-            <div class="content">
-                <div class="item">
-                    <img src="img/mantenimiento.png" alt="Mantenimiento">
-                    <p>Mantenimiento de equipos</p>
-                </div>
-                <div class="item">
-                    <img src="img/reparaciones.png" alt="Reparaciones">
-                    <p>Reparaciones</p>
-                </div>
-                <div class="item">
-                    <img src="img/modernizaciones.png" alt="Modernizaciones">
-                    <p>Modernizaciones</p>
-                </div>
-                <div class="item">
-                    <img src="img/refacciones.png" alt="Refacciones">
-                    <p>Refacciones Multimarcas</p>
-                </div>
-            </div>
-        </section>
+  <main>
+    <section id="Servicios">
+      <h2>Servicios</h2>
+      <div class="content" id="lista-servicios"></div>
+    </section>
 
-        <section id="Clientes">
-            <h2>Algunos de nuestros Clientes</h2>
-            <div class="content">
-                <div class="item">
-                    <img src="servicios/img/Plaza Foro 4 - Leon Gto..jpg" alt="Plaza Foro">
-                    <p>Plaza Foro 4 - León, Gto.</p>
-                </div>
-                <div class="item">
-                    <img src="servicios/img/Plaza Paseo Morelos - Leon Gto.png"alt="Plaza Paseo Morelos">
-                    <p>Plaza Paseo Morelos - León, Gto.</p>
-                </div>
-                <div class="item">
-                    <img src="servicios/img/Plaza Cuauhtemoc. Monterrey N.L..webp" alt="Plaza Cuauhtémoc">
-                    <p>Plaza Cuauhtémoc - Monterrey, N.L.</p>
-                </div>
-                <div class="item">
-                    <img src="servicios/img/Pemex Tampico.jpg" alt="Pemex">
-                    <p>Pemex Tampico</p>
-                </div>
-            </div>
-            <footer>
-                <p>&copy; 2024 ASCEMEX. Todos los derechos reservados.</p>
-            </footer>
-        </section>
-    </main>
+    <section id="Clientes">
+      <h2>Algunos de nuestros Clientes</h2>
+      <div class="content" id="lista-clientes"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 ASCEMEX. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    async function cargarServicios() {
+      try {
+        const res = await fetch('/api/servicios');
+        const servicios = await res.json();
+        const contenedor = document.getElementById('lista-servicios');
+        contenedor.innerHTML = '';
+        servicios.forEach(s => {
+          contenedor.innerHTML += `
+            <div class="item">
+              <img src="servicios/${s.imagen}" alt="${s.descripcion}" />
+              <p>${s.descripcion}</p>
+            </div>`;
+        });
+      } catch (err) {
+        console.error('Error al cargar servicios:', err);
+      }
+    }
+
+    async function cargarClientes() {
+      try {
+        const res = await fetch('/api/clientes');
+        const clientes = await res.json();
+        const contenedor = document.getElementById('lista-clientes');
+        contenedor.innerHTML = '';
+        clientes.forEach(c => {
+          contenedor.innerHTML += `
+            <div class="item">
+              <img src="clientes/${c.imagen}" alt="${c.descripcion}" />
+              <p>${c.descripcion}</p>
+            </div>`;
+        });
+      } catch (err) {
+        console.error('Error al cargar clientes:', err);
+      }
+    }
+
+    window.onload = () => {
+      cargarServicios();
+      cargarClientes();
+    };
+  </script>
 </body>
 </html>

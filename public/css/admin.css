@@ -1,0 +1,529 @@
+/* ===== Estilos básicos y tipografía ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9fafc;
+  color: #2c3e50;
+  line-height: 1.6;
+  padding-top: 56px; /* Para no ocultar contenido bajo la barra */
+}
+
+/* Barra de navegación mejorada */
+/* ==== Barra de navegación profesional ==== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #002b5c, #004080);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease;
+}
+
+nav .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .admin-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+nav .admin-label:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+nav .welcome {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+  user-select: none;
+  text-align: right;
+}
+
+/* Botones de navegación con estilo formal y elegante */
+#menu-secciones {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#menu-secciones button {
+  font-family: 'Merriweather', serif;
+  background-color: #004080;
+  color: #ffffff;
+  border: none;
+  padding: 12px 30px;
+  margin: 10px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#menu-secciones button:hover {
+  background-color: #1a252f;
+  transform: translateY(-2px);
+}
+
+#menu-secciones button:active {
+  background-color: #34495e;
+  transform: translateY(0);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  #menu-secciones button {
+    width: 90%;
+    margin: 8px auto;
+    display: block;
+  }
+}
+
+
+/* ==== Adaptación responsiva ==== */
+@media (max-width: 768px) {
+  nav .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  nav .logo {
+    font-size: 1.4rem;
+  }
+
+  nav .welcome {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+}
+
+
+/* Contenedor principal */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos principales */
+h1 {
+  font-size: 2.8rem;
+  color: #004080;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.9rem;
+  color: #0074d9;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #0074d9;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #004080;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+/* ===== FORMULARIOS ===== */
+form {
+  margin-bottom: 40px;
+}
+
+textarea,
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #d1d9e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  resize: vertical;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: #0074d9;
+  outline: none;
+  box-shadow: 0 0 5px #0074d9aa;
+}
+
+/* Botón general */
+button[type="submit"] {
+  background-color: #0074d9;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  display: inline-block;
+  user-select: none;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #005fa3;
+}
+
+/* Mensaje de estado */
+#mensaje {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #0074d9;
+}
+
+/* ===== SECCIÓN TRABAJOS ===== */
+section#trabajos,
+section#trabajos-escaleras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+section#trabajos > div,
+section#trabajos-escaleras > div {
+  width: 220px;
+  border: 1px solid #cbd6e2;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #eaf0f9;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+section#trabajos > div:hover,
+section#trabajos-escaleras > div:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+section#trabajos > div img,
+section#trabajos-escaleras > div img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+section#trabajos > div p,
+section#trabajos-escaleras > div p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  min-height: 60px;
+}
+
+section#trabajos > div button,
+section#trabajos-escaleras > div button {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 100%;
+}
+
+section#trabajos > div button:hover,
+section#trabajos-escaleras > div button:hover {
+  background-color: #990000;
+}
+
+/* ===== SECCIÓN SERVICIOS Y CLIENTES ===== */
+section#servicios,
+section#clientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+section#servicios > div,
+section#clientes > div {
+  width: 220px;
+  border: 1px solid #cbd6e2;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #e8f7f1;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+section#servicios > div:hover,
+section#clientes > div:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+section#servicios > div img,
+section#clientes > div img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+section#servicios > div p,
+section#clientes > div p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  min-height: 60px;
+}
+
+section#servicios > div button,
+section#clientes > div button {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 100%;
+}
+
+section#servicios > div button:hover,
+section#clientes > div button:hover {
+  background-color: #990000;
+}
+
+/* Separadores */
+hr {
+  border: none;
+  border-top: 1px solid #d1d9e6;
+  margin: 50px 0;
+}
+
+/* Responsividad */
+@media (max-width: 650px) {
+  main {
+    padding: 20px;
+  }
+
+  nav .nav-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  section#trabajos,
+  section#trabajos-escaleras,
+  section#servicios,
+  section#clientes {
+    justify-content: center;
+  }
+
+  section#trabajos > div,
+  section#trabajos-escaleras > div,
+  section#servicios > div,
+  section#clientes > div {
+    width: 100%;
+  }
+}
+/* SECCIÓN REFACCIONES - general */
+section#refacciones {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: block; /* controla con JS display:none o block */
+}
+
+/* Títulos */
+section#refacciones h2 {
+  font-size: 1.9rem;
+  color: #0074d9;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0074d9;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+section#refacciones h3 {
+  font-size: 1.5rem;
+  color: #004080;
+  margin: 30px 0 15px;
+  font-weight: 600;
+}
+
+/* Formulario */
+section#refacciones form label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+section#refacciones form input[type="file"],
+section#refacciones form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #d1d9e6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+section#refacciones form input[type="file"]:focus,
+section#refacciones form textarea:focus {
+  border-color: #0074d9;
+  outline: none;
+  box-shadow: 0 0 5px #0074d9aa;
+}
+
+/* Botón del formulario */
+section#refacciones form button[type="submit"] {
+  background-color: #0074d9;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+section#refacciones form button[type="submit"]:hover,
+section#refacciones form button[type="submit"]:focus {
+  background-color: #005fa3;
+}
+
+/* Contenedor para la lista de refacciones (igual estilo trabajos) */
+section#refacciones #refacciones-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+/* Cada refacción en la lista, estilo igual que trabajos */
+section#refacciones #refacciones-lista > div {
+  width: 220px;
+  border: 1px solid #cbd6e2;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #eaf0f9;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+section#refacciones #refacciones-lista > div:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen dentro de cada refacción */
+section#refacciones #refacciones-lista > div img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Descripción */
+section#refacciones #refacciones-lista > div p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  min-height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Botón eliminar */
+section#refacciones #refacciones-lista > div button {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 100%;
+}
+
+section#refacciones #refacciones-lista > div button:hover {
+  background-color: #990000;
+}
+
+/* Responsividad igual que las otras secciones */
+@media (max-width: 650px) {
+  section#refacciones {
+    padding: 20px;
+  }
+
+  section#refacciones #refacciones-lista {
+    justify-content: center;
+  }
+
+  section#refacciones #refacciones-lista > div {
+    width: 100%;
+  }
+}

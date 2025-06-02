@@ -11,7 +11,7 @@ body {
     object-fit: cover;
 }
 
-header2 {
+header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,7 @@ header2 {
     box-sizing: border-box;
 }
 
-header2 h2 {
+header h2 {
     margin: 0;
     font-size: 2rem;
     text-align: center;

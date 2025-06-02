@@ -15,19 +15,19 @@ body {
 }
 
 /* Encabezado */
-header1 {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background: linear-gradient(to right, #ffffff, #004080 50%);
+    background: linear-gradient(to right, #004080, #004080 50%);
     color: #fff;
     box-sizing: border-box;
 }
 
 .logo img {
     width: auto;
-    max-height: 100px;
+    max-height: 105px;
     object-fit: cover;
 }
 
@@ -74,6 +74,17 @@ header1 {
 .nav-refacciones { background-color: #618C37; }
 .nav-contacto { background-color: #F20505; }
 
+.login-icon {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+  }
+  
+  .login-image-btn:hover .login-icon {
+    transform: scale(1.1);
+  }
+  
 /* Sección Quiénes Somos */
 .quienes-somos {
     background-image: url('img/fondo-prev.jpg');
@@ -244,4 +255,6 @@ footer {
         width: 100%;
         height: auto;
     }
+
+
 }
